@@ -1,0 +1,5 @@
+3001,The Shawshank Redemption,Frank Darabont,Drama,142 min,normal
+3002,The Godfather,Francis Ford Coppola,Crime,175 min,normal
+3003,Inception,Christopher Nolan,Sci-Fi,148 min,limited
+3004,Pulp Fiction,Quentin Tarantino,Crime,154 min,normal
+3005,The Matrix,Wachowski Sisters,Sci-Fi,136 min,rare

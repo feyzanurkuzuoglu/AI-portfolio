@@ -1,0 +1,5 @@
+2001,National Geographic,National Geographic Society,Science,normal
+2002,Time,Time USA,News,normal
+2003,Scientific American,Springer Nature,Science,reference
+2004,Vogue,Condé Nast,Fashion,normal
+2005,The Economist,The Economist Group,Economics,limited

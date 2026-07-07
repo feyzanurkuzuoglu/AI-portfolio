@@ -1,0 +1,8 @@
+1001,The Great Gatsby,F. Scott Fitzgerald,Classic Fiction,normal
+1002,Dune,Frank Herbert,Science Fiction,normal
+1003,Pride and Prejudice,Jane Austen,Romance,normal
+1004,The Silent Patient,Alex Michaelides,Thriller,normal
+1005,Sapiens: A Brief History of Humankind,Yuval Noah Harari,Non-Fiction,reference
+1006,The Hobbit,J.R.R. Tolkien,Fantasy,rare
+1007,Gone Girl,Gillian Flynn,Mystery,limited
+1008,The Alchemist,Paulo Coelho,Philosophical Fiction,reference

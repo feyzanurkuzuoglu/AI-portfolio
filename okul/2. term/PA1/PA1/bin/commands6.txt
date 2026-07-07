@@ -1,0 +1,7 @@
+borrow,3001,1001,13/03/2025
+borrow,3001,1002,13/03/2025
+borrow,3002,1001,13/03/2025
+return,3001,1001
+borrow,3002,1001,13/03/2025
+displayUsers
+displayItems
