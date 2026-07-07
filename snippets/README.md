@@ -1,4 +1,4 @@
-# Sandbox: Experiments & Mini-Projects
+## Experiments & Mini-Projects
 
 This directory contains a collection of miscellaneous scripts, mini-projects, and coding experiments related to Artificial Intelligence and Machine Learning. 
 
