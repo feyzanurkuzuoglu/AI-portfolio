@@ -1,0 +1,7 @@
+CREATE_TABLE departments (department_name)
+CREATE_TABLE employees (name,age,wage) dept_id departments
+INSERT departments Marketing
+INSERT departments IT
+INSERT employees David Moses,33,3000,1
+INSERT employees Ian Clark,30,2500,2
+INSERT students Ian Clark,30,2500,2

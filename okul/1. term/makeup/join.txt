@@ -1,0 +1,21 @@
+CREATE_TABLE departments (department_name)
+CREATE_TABLE employees (name,age,wage) dept_id departments
+CREATE_TABLE courses (name)
+CREATE_TABLE teachers (name,age,course) course_id courses
+INSERT departments Marketing
+INSERT departments IT
+INSERT departments Sales
+INSERT departments HR
+INSERT employees David Moses,33,3000,1
+INSERT employees Ian Clark,30,2500,2
+INSERT employees John Moses,30,4200,None
+INSERT employees David Cly,36,400,None
+LEFT_JOIN employees,departments
+JOIN employees,departments
+FULL_JOIN employees,departments
+JOIN teachers,departments
+LEFT_JOIN teachers,departments
+LEFT_JOIN teachers,students
+LEFT_JOIN students,departments
+FULL_JOIN teachers,students
+FULL_JOIN students,departments

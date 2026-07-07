@@ -1,0 +1,11 @@
+CREATE_TABLE departments (department_name)
+CREATE_TABLE employees (name,age,wage) dept_id departments
+INSERT departments Marketing
+INSERT departments IT
+INSERT employees David Moses,33,3000,1
+INSERT employees Ian Clark,30,2500,2
+UPDATE employees age:30 WHERE wage>2450
+UPDATE employees wage:4500 WHERE name=Ian Clark
+UPDATE students age:29 WHERE age<32
+UPDATE employees surname:John WHERE age<32
+UPDATE employees surname:John WHERE count<32

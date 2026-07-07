@@ -1,0 +1,27 @@
+CREATE_TABLE departments (department_name)
+CREATE_TABLE employees (name,age,wage) dept_id departments
+INSERT departments Marketing
+INSERT departments IT
+INSERT departments HR
+INSERT departments Sales
+INSERT employees David Moses,33,3000,1
+INSERT employees Ian Clark,30,2500,2
+INSERT employees John Dove,28,3200,None
+INSERT employees Mike Brown,27,3400,None
+SELECT employees name,age WHERE age>29
+SELECT employees * WHERE age>29
+SELECT employees name,age WHERE age<29
+SELECT employees name,age WHERE age=28
+UPDATE employees age:25 WHERE age=28
+UPDATE employees wage:4000 WHERE wage>3300
+UPDATE employees wage:3000 WHERE wage<2600
+LEFT_JOIN employees,departments
+FULL_JOIN employees,departments
+COUNT employees *
+COUNT employees WHERE age<29
+COUNT employees WHERE age>29
+COUNT employees WHERE age=25
+DELETE employees WHERE age>31
+DELETE employees WHERE age<26
+DELETE employees WHERE name=Ian Clark
+DELETE employees *
