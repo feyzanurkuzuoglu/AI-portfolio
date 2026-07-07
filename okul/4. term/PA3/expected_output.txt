@@ -1,0 +1,82 @@
+
+════════════════════════════════════════════════════════════
+  AETHERIA CITY – Full System Boot Report
+════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════
+  PART A  |  Power Grid
+════════════════════════════════════════════════════════════
+City fully connected? YES ✓
+
+Minimum Spanning Tree (12 cables):
+  Sensor Array           ↔ Security HQ             cost: 1
+  Network Core           ↔ Sensor Array            cost: 2
+  Security HQ            ↔ Residential A           cost: 2
+  Power Plant            ↔ Solar Farm              cost: 3
+  Network Core           ↔ Water Treatment         cost: 3
+  Traffic AI Centre      ↔ Residential B           cost: 3
+  Power Plant            ↔ Electricity Hub         cost: 4
+  Fiber Junction         ↔ Water Treatment         cost: 4
+  Traffic AI Centre      ↔ Residential A           cost: 4
+  Solar Farm             ↔ Network Core            cost: 5
+  Medical Bay            ↔ Residential B           cost: 6
+  Electricity Hub        ↔ Data Center             cost: 7
+Total minimum cable cost: 44 units
+
+════════════════════════════════════════════════════════════
+  PART B  |  Master Boot Sequence (valid order)
+════════════════════════════════════════════════════════════
+=== Part B: Master Boot Sequence ===
+Valid boot sequence found:
+  Step  1: Traffic AI (id=6)
+  Step  2: Water Treatment (id=5)
+  Step  3: Security HQ (id=4)
+  Step  4: Data Center (id=3)
+  Step  5: Solar Farm (id=2)
+  Step  6: Electricity Hub (id=1)
+  Step  7: Power Plant (id=0)
+
+--- Introducing circular dependency (deadlock demo) ---
+=== Part B: Master Boot Sequence ===
+  [Cycle detected] Edge 1 → 0 creates a circular dependency.
+SYSTEM INFEASIBLE: Circular reference (deadlock) detected!
+
+════════════════════════════════════════════════════════════
+  PART C  |  Secure Communication Hubs (SCCs)
+════════════════════════════════════════════════════════════
+=== Part C: Secure Communication Hubs ===
+Total SCCs found: 10
+  SCC-0 [HIGH-INTERACTION ZONE]: {Residential A, Residential B}
+  SCC-1: {Medical Bay}
+  SCC-2 [HIGH-INTERACTION ZONE]: {Sensor Array, Security HQ, Traffic AI Centre}
+  SCC-3: {Water Treatment}
+  SCC-4: {Fiber Junction}
+  SCC-5: {Network Core}
+  SCC-6: {Data Center}
+  SCC-7: {Solar Farm}
+  SCC-8: {Electricity Hub}
+  SCC-9: {Power Plant}
+High-Interaction Zones: 2
+
+════════════════════════════════════════════════════════════
+  PART D  |  Bio-Leak Containment Protocol
+════════════════════════════════════════════════════════════
+Leak origin: Network Core (id=4)
+
+=== Part D, Task 1 Network Core(4) ===
+Stations at risk (8):
+  Network Core(4)
+  Water Treatment(7)
+  Medical Bay(10)
+  Residential B(12)
+  Residential A(11)
+  Traffic AI Centre(9)
+  Sensor Array(6)
+  Security HQ(8)
+
+=== Part D, Task 2 Network Core(4) ===
+Evacuation priority layers:
+  Layer 0 (source)     : Network Core(4)
+  Layer 1 (priority 1): Sensor Array(6), Water Treatment(7)
+  Layer 2 (priority 2): Security HQ(8), Traffic AI Centre(9), Medical Bay(10)
+  Layer 3 (priority 3): Residential A(11), Residential B(12)

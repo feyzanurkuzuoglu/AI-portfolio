@@ -1,0 +1,251 @@
+<data>
+    <districts>
+        <district>
+            <id>D0</id>
+            <name>Power Plant</name>
+            <links>
+                <link><target>D1</target><cableCost>4</cableCost></link>
+                <link><target>D2</target><cableCost>3</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D1</id>
+            <name>Electricity Hub</name>
+            <links>
+                <link><target>D3</target><cableCost>7</cableCost></link>
+                <link><target>D4</target><cableCost>6</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D2</id>
+            <name>Solar Farm</name>
+            <links>
+                <link><target>D4</target><cableCost>5</cableCost></link>
+                <link><target>D5</target><cableCost>8</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D3</id>
+            <name>Data Center</name>
+            <links>
+                <link><target>D6</target><cableCost>9</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D4</id>
+            <name>Network Core</name>
+            <links>
+                <link><target>D6</target><cableCost>2</cableCost></link>
+                <link><target>D7</target><cableCost>3</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D5</id>
+            <name>Fiber Junction</name>
+            <links>
+                <link><target>D7</target><cableCost>4</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D6</id>
+            <name>Sensor Array</name>
+            <links>
+                <link><target>D8</target><cableCost>1</cableCost></link>
+                <link><target>D9</target><cableCost>6</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D7</id>
+            <name>Water Treatment</name>
+            <links>
+                <link><target>D9</target><cableCost>5</cableCost></link>
+                <link><target>D10</target><cableCost>7</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D8</id>
+            <name>Security HQ</name>
+            <links>
+                <link><target>D11</target><cableCost>2</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D9</id>
+            <name>Traffic AI Centre</name>
+            <links>
+                <link><target>D11</target><cableCost>4</cableCost></link>
+                <link><target>D12</target><cableCost>3</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D10</id>
+            <name>Medical Bay</name>
+            <links>
+                <link><target>D12</target><cableCost>6</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D11</id>
+            <name>Residential A</name>
+            <links>
+                <link><target>D12</target><cableCost>5</cableCost></link>
+            </links>
+        </district>
+        <district>
+            <id>D12</id>
+            <name>Residential B</name>
+            <links/>
+        </district>
+    </districts>
+
+    <bootDependencies>
+        <s>
+            <id>S0</id>
+            <name>Power Plant</name>
+            <requires/>
+        </s>
+        <s>
+            <id>S1</id>
+            <name>Electricity Hub</name>
+            <requires><req>S0</req></requires>
+        </s>
+        <s>
+            <id>S2</id>
+            <name>Solar Farm</name>
+            <requires><req>S0</req></requires>
+        </s>
+        <s>
+            <id>S3</id>
+            <name>Data Center</name>
+            <requires><req>S1</req></requires>
+        </s>
+        <s>
+            <id>S4</id>
+            <name>Security HQ</name>
+            <requires><req>S3</req></requires>
+        </s>
+        <s>
+            <id>S5</id>
+            <name>Water Treatment</name>
+            <requires><req>S1</req></requires>
+        </s>
+        <s>
+            <id>S6</id>
+            <name>Traffic AI</name>
+            <requires>
+                <req>S3</req>
+                <req>S4</req>
+            </requires>
+        </s>
+    </bootDependencies>
+
+    <fiberLinks>
+        <station>
+            <id>F0</id>
+            <name>Power Plant</name>
+            <outgoing>
+                <link><target>F1</target></link>
+                <link><target>F2</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F1</id>
+            <name>Electricity Hub</name>
+            <outgoing>
+                <link><target>F3</target></link>
+                <link><target>F4</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F2</id>
+            <name>Solar Farm</name>
+            <outgoing>
+                <link><target>F4</target></link>
+                <link><target>F5</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F3</id>
+            <name>Data Center</name>
+            <outgoing>
+                <link><target>F6</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F4</id>
+            <name>Network Core</name>
+            <outgoing>
+                <link><target>F6</target></link>
+                <link><target>F7</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F5</id>
+            <name>Fiber Junction</name>
+            <outgoing>
+                <link><target>F7</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F6</id>
+            <name>Sensor Array</name>
+            <outgoing>
+                <link><target>F8</target></link>
+                <link><target>F9</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F7</id>
+            <name>Water Treatment</name>
+            <outgoing>
+                <link><target>F9</target></link>
+                <link><target>F10</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F8</id>
+            <name>Security HQ</name>
+            <outgoing>
+                <link><target>F6</target></link>
+                <link><target>F11</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F9</id>
+            <name>Traffic AI Centre</name>
+            <outgoing>
+                <link><target>F6</target></link>
+                <link><target>F11</target></link>
+                <link><target>F12</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F10</id>
+            <name>Medical Bay</name>
+            <outgoing>
+                <link><target>F12</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F11</id>
+            <name>Residential A</name>
+            <outgoing>
+                <link><target>F12</target></link>
+            </outgoing>
+        </station>
+        <station>
+            <id>F12</id>
+            <name>Residential B</name>
+            <outgoing>
+                <link><target>F11</target></link>
+            </outgoing>
+        </station>
+    </fiberLinks>
+
+    <leakScenarios>
+        <scenario>
+            <sourceId>F4</sourceId>
+        </scenario>
+    </leakScenarios>
+
+</data>

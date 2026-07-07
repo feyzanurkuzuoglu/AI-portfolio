@@ -1,0 +1,105 @@
+##COST COMPUTATION##
+cholesterol_ratio         processing_cost: 1
+glucose_indicator         processing_cost: 1
+kidney_stress             processing_cost: 2
+liver_function            processing_cost: 2
+bmi_indicator             processing_cost: 0
+##COST COMPUTATION COMPLETED##
+
+##PATIENT BURDEN ANALYSIS (Top-Down DP)##
+Called computeSamples(overall_health)
+  Called computeSamples(cardiovascular_risk)
+    Called computeSamples(cholesterol_ratio)
+      Called computeSamples(total_cholesterol)
+      total_cholesterol -> [BLOOD]
+      Called computeSamples(hdl_cholesterol)
+      hdl_cholesterol -> [BLOOD]
+    cholesterol_ratio memoized -> [BLOOD]
+    Called computeSamples(bmi_indicator)
+      Called computeSamples(bmi)
+      bmi -> {} (NONE, not counted)
+    bmi_indicator memoized -> []
+  cardiovascular_risk memoized -> [BLOOD]
+  Called computeSamples(diabetes_risk)
+    Called computeSamples(glucose_indicator)
+      Called computeSamples(blood_glucose)
+      blood_glucose -> [BLOOD]
+    glucose_indicator memoized -> [BLOOD]
+    Called computeSamples(kidney_stress)
+      Called computeSamples(creatinine)
+      creatinine -> [BLOOD]
+      Called computeSamples(urine_protein)
+      urine_protein -> [URINE]
+    kidney_stress memoized -> [BLOOD, URINE]
+    Called computeSamples(bmi_indicator) -> MEMOIZED []
+  diabetes_risk memoized -> [BLOOD, URINE]
+  Called computeSamples(liver_health)
+    Called computeSamples(liver_function)
+      Called computeSamples(liver_enzyme)
+      liver_enzyme -> [BLOOD]
+      Called computeSamples(biopsy_score)
+      biopsy_score -> [TISSUE]
+    liver_function memoized -> [BLOOD, TISSUE]
+    Called computeSamples(kidney_stress) -> MEMOIZED [BLOOD, URINE]
+  liver_health memoized -> [BLOOD, TISSUE, URINE]
+overall_health memoized -> [BLOOD, TISSUE, URINE]
+
+Patient burden for overall_health: 3 sample type(s): [BLOOD, TISSUE, URINE]
+##PATIENT BURDEN ANALYSIS COMPLETED##
+
+##HOSPITAL COST ANALYSIS (Bottom-Up DP)##
+Topological order: total_cholesterol, hdl_cholesterol, cholesterol_ratio, bmi, bmi_indicator, cardiovascular_risk, blood_glucose, glucose_indicator, creatinine, urine_protein, kidney_stress, diabetes_risk, liver_enzyme, biopsy_score, liver_function, liver_health, overall_health
+
+Computing total_cholesterol:        collection_cost = 3      total: 3
+Computing hdl_cholesterol:          collection_cost = 3      total: 3
+Computing cholesterol_ratio:        processing_cost = 1 + 3 + 3       total: 7
+Computing bmi:                      collection_cost = 1      total: 1
+Computing bmi_indicator:            processing_cost = 1               total: 1
+Computing cardiovascular_risk:      cost = 7 + 1           total: 8
+Computing blood_glucose:            collection_cost = 2      total: 2
+Computing glucose_indicator:        processing_cost = 1 + 2           total: 3
+Computing creatinine:               collection_cost = 4      total: 4
+Computing urine_protein:            collection_cost = 3      total: 3
+Computing kidney_stress:            processing_cost = 2 + 4 + 3       total: 9
+Computing diabetes_risk:            cost = 3 + 9 + 1       total: 13
+Computing liver_enzyme:             collection_cost = 5      total: 5
+Computing biopsy_score:             collection_cost = 6      total: 6
+Computing liver_function:           processing_cost = 2 + 5 + 6       total: 13
+Computing liver_health:             cost = 13 + 9          total: 22
+Computing overall_health:           cost = 8 + 13 + 22     total: 43
+
+Results:
+  overall_health               naive hospital cost: 43
+  cardiovascular_risk          naive hospital cost: 8
+  diabetes_risk                naive hospital cost: 13
+  liver_health                 naive hospital cost: 22
+##HOSPITAL COST ANALYSIS COMPLETED##
+
+##DIAGNOSTIC PLAN##
+Target: overall_health (Overall Health Index)
+
+Patient burden:  3 sample type(s) required
+  Procedures:    BLOOD draw, TISSUE biopsy, URINE sample
+
+Execution order (hospital cost optimized):
+  [ 1]  total_cholesterol            [RAW]        added cost:  3  <- BLOOD sample
+  [ 2]  hdl_cholesterol              [RAW]        added cost:  3  <- BLOOD sample
+  [ 3]  cholesterol_ratio            [DERIVED]    added cost:  1
+  [ 4]  bmi                          [RAW]        added cost:  1
+  [ 5]  bmi_indicator                [DERIVED]    added cost:  0
+  [ 6]  cardiovascular_risk          [COMPOSITE]  added cost:  0
+  [ 7]  blood_glucose                [RAW]        added cost:  2  <- BLOOD sample
+  [ 8]  glucose_indicator            [DERIVED]    added cost:  1
+  [ 9]  creatinine                   [RAW]        added cost:  4  <- BLOOD sample
+  [10]  urine_protein                [RAW]        added cost:  3  <- URINE sample
+  [11]  kidney_stress                [DERIVED]    added cost:  2
+  [12]  diabetes_risk                [COMPOSITE]  added cost:  0
+  [13]  liver_enzyme                 [RAW]        added cost:  5  <- BLOOD sample
+  [14]  biopsy_score                 [RAW]        added cost:  6  <- TISSUE sample
+  [15]  liver_function               [DERIVED]    added cost:  2
+  [16]  liver_health                 [COMPOSITE]  added cost:  0
+  [17]  overall_health               [COMPOSITE]  added cost:  0
+
+Naive hospital cost:     43
+Optimized hospital cost: 33
+##DIAGNOSTIC PLAN COMPLETED##
